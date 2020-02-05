@@ -13,13 +13,13 @@ import './cart-dropdown.styles.scss';
 const CartDropdown = ({ cartItems, history, dispatch }) => (
   <div className="cart-dropdown">
     <div className="cartitems">
-      {cartItems.length ? (
+      {cartItems.length ?
         cartItems.map(cartItem => (
           <CartItem key={cartItem.id} item={cartItem} />
         ))
-      ) : (
-          <span className="empty-message">Your cart is empty</span>
-        )}
+        :
+        <span className="empty-message">Your cart is empty</span>
+      }
     </div>
     <CustomButton onClick={() => {
       history.push('/checkout');
