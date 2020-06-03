@@ -32,4 +32,3 @@ export const userReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default userReducer;

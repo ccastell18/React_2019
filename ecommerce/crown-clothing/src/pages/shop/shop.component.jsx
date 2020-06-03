@@ -11,7 +11,7 @@ import { fetchCollectionsStart } from '../../redux/shop/shop.actions';
 import './shop.styles.scss';
 
 
-const ShopPage = ({ match, fetchCollectionsStart }) => {
+const ShopPage = ({ fetchCollectionsStart, match }) => {
   useEffect(() => {
     fetchCollectionsStart()
   }, [fetchCollectionsStart])

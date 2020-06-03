@@ -9,7 +9,10 @@ import { googleSignInStart, emailSignInStart } from '../../redux/user/user.actio
 import './sign-in.styles.scss';
 
 const SignIn = ({ emailSignInStart, googleSignInStart }) => {
-  const [userCredentials, setCredentials] = useState({ email: '', password: '' })
+  const [userCredentials, setCredentials] = useState({
+    email: '',
+    password: '',
+  });
 
   const { email, password } = userCredentials;
 
@@ -19,8 +22,8 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
     emailSignInStart(email, password);
   };
 
-  const handleChange = event => {
-    const { name, value } = event.target;
+  const handleChange = (event) => {
+    const { value, name } = event.target;
 
     setCredentials({ ...userCredentials, [name]: value });
   }
@@ -48,19 +51,19 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
         <div className="buttons">
           <CustomButton type='submit'>Sign In</CustomButton>
           <CustomButton type='button' onClick={googleSignInStart} isGoogleSignIn>
-            {' '}
-              Sign in with Google{' '}
+
+            Sign in with Google
           </CustomButton>
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   googleSignInStart: () => dispatch(googleSignInStart()),
-  emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password }))
+  emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password })),
 })
 
 export default connect(null, mapDispatchToProps)(SignIn);
